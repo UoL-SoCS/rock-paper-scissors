@@ -7,8 +7,9 @@ The goal is not to type a lot of code. The goal is for students to see how the c
 ## Timing Plan
 
 - 0-5 min: setup, run the app, explain the files
-- 5-10 min: draw hand landmarks
-- 10-25 min: count fingers and classify gestures
+- 5-10 min: activate the camera feed
+- 10-15 min: draw hand landmarks
+- 15-25 min: count fingers and classify gestures
 - 25-35 min: add the computer move and winner logic
 - 35-42 min: update the score and test the game
 - 42-45 min: stretch ideas or switch stuck groups to `complete-solution`
@@ -40,11 +41,31 @@ pip install -r requirements.txt
 python src\main.py
 ```
 
-You should see the webcam feed and the game overlay. At the start, the app is not finished: it should show `UNKNOWN` for the player move and the score will not change yet.
+At the very start, the app prints a camera message because the first TODO has not been completed yet. That gives the class a quick first win: activate the webcam feed, then run the app again.
 
-## Step 1: Draw Hand Landmarks
+## Step 1: Activate the Camera
 
 Open `src/main.py` and find `TODO 1`.
+
+Replace:
+
+```python
+return None
+```
+
+with:
+
+```python
+return cv2.VideoCapture(CAMERA_INDEX)
+```
+
+Run the app again. You should see the webcam feed and the game overlay.
+
+Checkpoint: students can explain that OpenCV opens the webcam and gives the program one image frame at a time.
+
+## Step 2: Draw Hand Landmarks
+
+Stay in `src/main.py` and find `TODO 2`.
 
 Replace the TODO comment with:
 
@@ -56,41 +77,23 @@ Run the app again. When a hand is visible, MediaPipe should draw dots and lines 
 
 Checkpoint: students can explain that MediaPipe finds landmark points on the hand, and OpenCV draws them on the webcam frame.
 
-## Step 2: Count the Thumb
+## Step 3: Count the Fingers
 
-Open `src/hand_tracking.py` and find `TODO 2` inside `count_extended_fingers`.
-
-Add:
-
-```python
-if handedness == "Right":
-    thumb_extended = landmarks[THUMB_TIP].x > landmarks[THUMB_IP].x
-else:
-    thumb_extended = landmarks[THUMB_TIP].x < landmarks[THUMB_IP].x
-
-if thumb_extended:
-    extended_fingers += 1
-```
-
-The thumb is sideways, so we compare `x` positions. This is different from the other fingers.
-
-Checkpoint: make a thumbs-up shape and watch the finger count change.
-
-## Step 3: Count the Other Fingers
-
-Stay in `src/hand_tracking.py` and find `TODO 3`.
+Open `src/hand_tracking.py` and find `TODO 3`.
 
 Add:
 
 ```python
-for tip_id, pip_id in zip(FINGER_TIPS, FINGER_PIPS):
-    if landmarks[tip_id].y < landmarks[pip_id].y:
+for tip_id, bend_id in zip(FINGER_TIPS, FINGER_BENDS):
+    if landmarks[tip_id].y < landmarks[bend_id].y:
         extended_fingers += 1
 ```
 
-For the index, middle, ring, and little finger, a finger is extended when its tip is higher on the screen than its middle joint.
+For the index, middle, ring, and little finger, a finger is extended when its tip is higher on the screen than its middle bend.
 
-Checkpoint: try a fist, two fingers, and an open hand. The finger count should now be roughly 0, 2, and 5.
+We deliberately ignore the thumb. It points sideways instead of upward, so it is harder to detect reliably in a quick classroom activity.
+
+Checkpoint: try a fist, two fingers, and an open hand. The finger count should now be roughly 0, 2, and 4.
 
 ## Step 4: Classify the Gesture
 

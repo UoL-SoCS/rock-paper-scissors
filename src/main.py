@@ -13,6 +13,7 @@ CAMERA_INDEX = 0
 
 def show_camera_message():
     print("Could not open the webcam.")
+    print("If you are starting the tutorial, finish TODO 1 in src/main.py first.")
     print("Check that the camera is connected and that your OS allows camera access.")
     print("If another app is using the camera, close it and try again.")
 
@@ -73,10 +74,16 @@ def play_round(player_move, score):
     return computer_move, result
 
 
-def main():
-    camera = cv2.VideoCapture(CAMERA_INDEX)
+def open_camera():
+    # TODO 1: Activate the webcam feed.
+    # Hint: return cv2.VideoCapture(CAMERA_INDEX)
+    return None
 
-    if not camera.isOpened():
+
+def main():
+    camera = open_camera()
+
+    if camera is None or not camera.isOpened():
         show_camera_message()
         return
 
@@ -93,15 +100,15 @@ def main():
                 break
 
             frame = cv2.flip(frame, 1)
-            hand_landmarks, handedness = detect_first_hand(frame, hand_tracker)
+            hand_landmarks = detect_first_hand(frame, hand_tracker)
 
             if hand_landmarks is None:
                 player_move = None
                 finger_count = None
             else:
-                # TODO 1: Draw the detected hand landmarks on the camera frame.
+                # TODO 2: Draw the detected hand landmarks on the camera frame.
                 # Hint: call draw_hand_landmarks(frame, hand_landmarks)
-                player_move, finger_count = classify_gesture(hand_landmarks, handedness)
+                player_move, finger_count = classify_gesture(hand_landmarks)
 
             draw_game_overlay(frame, player_move, finger_count, computer_move, result, score)
             cv2.imshow(WINDOW_NAME, frame)

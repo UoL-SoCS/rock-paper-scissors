@@ -34,14 +34,14 @@ If you previously installed the dependencies and see `AttributeError: module 'me
 
 ## Workshop Flow
 
-1. Run the mostly complete app.
+1. Activate the webcam feed.
 2. Draw hand landmarks.
 3. Count extended fingers.
 4. Classify rock, paper, and scissors.
 5. Generate the computer move.
 6. Decide the winner and update the score.
 
-The starting point should still run before any TODOs are completed, but it will not play a real round until the students fill in the missing pieces.
+The starting point runs before any TODOs are completed, but it will print a helpful camera message until students activate the webcam feed.
 
 ## Complete Solution Fallback
 
