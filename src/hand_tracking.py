@@ -1,4 +1,10 @@
 import cv2
+import os
+import tempfile
+
+
+os.environ.setdefault("MPLCONFIGDIR", os.path.join(tempfile.gettempdir(), "rps-matplotlib-cache"))
+
 import mediapipe as mp
 
 

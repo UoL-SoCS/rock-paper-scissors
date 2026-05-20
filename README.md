@@ -8,7 +8,7 @@ This is the finished fallback version. It uses OpenCV for the camera window, Med
 
 ## Setup
 
-Use Python 3.11.
+Use Python 3.11 or 3.12.
 
 ```bash
 python -m venv .venv
@@ -27,6 +27,8 @@ python src\main.py
 ```
 
 You can also run `./start.sh` on macOS/Linux or `start.bat` on Windows after installing the requirements.
+
+If you previously installed the dependencies and see `AttributeError: module 'mediapipe' has no attribute 'solutions'`, run `pip install -r requirements.txt` again. The requirements file pins MediaPipe to a classroom-compatible version that still supports the simple `mp.solutions` API.
 
 ## Controls
 
