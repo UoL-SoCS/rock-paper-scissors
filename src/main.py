@@ -7,7 +7,7 @@ from hand_tracking import draw_hand_landmarks
 from utils import CYAN, GREEN, RED, WHITE, YELLOW, draw_panel, draw_text
 
 
-WINDOW_NAME = "Rock Paper Scissors"
+WINDOW_NAME = "Rock, Paper, Scissors, AI!"
 CAMERA_INDEX = 0
 
 
@@ -39,7 +39,7 @@ def draw_game_overlay(frame, player_move, finger_count, computer_move, result, s
     height, width = frame.shape[:2]
 
     draw_panel(frame, 0, 0, width, 152)
-    draw_text(frame, "Rock Paper Scissors", 28, 45, scale=1.2, color=YELLOW)
+    draw_text(frame, "Rock, Paper, Scissors, AI!", 28, 45, scale=1.0, color=YELLOW)
     draw_text(frame, "Show a gesture, then press SPACE to play", 30, 88, scale=0.75, color=WHITE)
 
     if finger_count is None:

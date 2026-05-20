@@ -2,7 +2,7 @@
 
 ## Project overview
 
-This project is a short, classroom-friendly computer vision activity for a school event. The goal is to build a webcam-based rock-paper-scissors game in Python that is simple enough to follow live, visually engaging, and reliable on locally installed machines.
+This project is a short, classroom-friendly computer vision activity for a school event called Rock, Paper, Scissors, AI! The goal is to build a webcam-based rock-paper-scissors game in Python that is simple enough to follow live, visually engaging, and reliable on locally installed machines.
 
 The code should prioritise:
 
@@ -167,4 +167,4 @@ Before the event, verify that the complete branch:
 
 By the end of the activity, a student should be able to explain the project in plain language:
 
-> We built a webcam game that reads hand gestures and plays rock-paper-scissors against the computer.
+> We built Rock, Paper, Scissors, AI!: a webcam game that reads hand gestures and plays against the computer.

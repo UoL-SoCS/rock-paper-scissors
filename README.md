@@ -1,8 +1,8 @@
-![Rock Paper Scissors AI banner](banner.png)
+![Rock, Paper, Scissors, AI! banner](banner.png)
 
-# Webcam Rock Paper Scissors
+# Rock, Paper, Scissors, AI!
 
-A classroom-friendly Python activity that turns a webcam into a rock-paper-scissors game.
+A classroom-friendly Python activity that turns a webcam into a game of Rock, Paper, Scissors, AI!
 
 This branch is the guided workshop version. The app is mostly complete, but a few small `TODO` sections are left for students to finish during the activity.
 
