@@ -1,10 +1,10 @@
-![Rock Paper Scissors AI banner](banner.png)
+![Rock, Paper, Scissors, AI! banner](banner.png)
 
-# Webcam Rock Paper Scissors
+# Rock, Paper, Scissors, AI!
 
-A classroom-friendly Python activity that turns a webcam into a rock-paper-scissors game.
+A classroom-friendly Python activity that turns a webcam into a game of Rock, Paper, Scissors, AI!
 
-This is the finished fallback version. It uses OpenCV for the camera window, MediaPipe for hand landmarks, and a small rule-based gesture classifier.
+This is the finished fallback version of Rock, Paper, Scissors, AI! It uses OpenCV for the camera window, MediaPipe for hand landmarks, and a small rule-based gesture classifier.
 
 ## Setup
 
