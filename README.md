@@ -1,8 +1,10 @@
+![Rock Paper Scissors AI banner](banner.png)
+
 # Webcam Rock Paper Scissors
 
 A classroom-friendly Python activity that turns a webcam into a rock-paper-scissors game.
 
-The workshop branch starts with a small runnable webcam demo. A finished version is kept on the `complete-solution` branch so the class has a fallback if a machine or group gets stuck.
+This is the finished fallback version. It uses OpenCV for the camera window, MediaPipe for hand landmarks, and a small rule-based gesture classifier.
 
 ## Setup
 
@@ -26,25 +28,17 @@ python src\main.py
 
 You can also run `./start.sh` on macOS/Linux or `start.bat` on Windows after installing the requirements.
 
-## Workshop Flow
+## Controls
 
-1. Open the webcam feed.
-2. Draw hand landmarks.
-3. Classify rock, paper, and scissors.
-4. Generate a computer move.
-5. Decide the winner and update the score.
+- Show a rock, paper, or scissors gesture to the camera.
+- Press `Space` to play a round.
+- Press `R` to reset the score.
+- Press `Q` to quit.
 
-## Complete Solution Fallback
+## Gesture Rules
 
-To switch to the finished version:
+- Rock: zero or one fingers extended
+- Scissors: two fingers extended
+- Paper: four or five fingers extended
 
-```bash
-git checkout complete-solution
-python src/main.py
-```
-
-To return to the workshop starter:
-
-```bash
-git checkout main
-```
+Three fingers is treated as unknown so students get clear feedback when the gesture is not one of the game moves.
