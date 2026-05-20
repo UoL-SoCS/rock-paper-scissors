@@ -41,6 +41,6 @@ If you previously installed the dependencies and see `AttributeError: module 'me
 
 - Rock: zero or one fingers extended
 - Scissors: two fingers extended
-- Paper: four or five fingers extended
+- Paper: four fingers extended
 
-Three fingers is treated as unknown so students get clear feedback when the gesture is not one of the game moves.
+Three fingers is treated as unknown so students get clear feedback when the gesture is not one of the game moves. The thumb is deliberately ignored because sideways thumb detection can be brittle in a quick classroom setup.

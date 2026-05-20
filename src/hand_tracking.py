@@ -13,9 +13,7 @@ mp_drawing = mp.solutions.drawing_utils
 mp_styles = mp.solutions.drawing_styles
 
 FINGER_TIPS = (8, 12, 16, 20)
-FINGER_PIPS = (6, 10, 14, 18)
-THUMB_TIP = 4
-THUMB_IP = 3
+FINGER_BENDS = (6, 10, 14, 18)
 
 
 def create_hand_tracker():
@@ -32,15 +30,9 @@ def detect_first_hand(frame, hand_tracker):
     results = hand_tracker.process(rgb_frame)
 
     if not results.multi_hand_landmarks:
-        return None, None
+        return None
 
-    hand_landmarks = results.multi_hand_landmarks[0]
-    handedness = "Right"
-
-    if results.multi_handedness:
-        handedness = results.multi_handedness[0].classification[0].label
-
-    return hand_landmarks, handedness
+    return results.multi_hand_landmarks[0]
 
 
 def draw_hand_landmarks(frame, hand_landmarks):
@@ -53,27 +45,19 @@ def draw_hand_landmarks(frame, hand_landmarks):
     )
 
 
-def count_extended_fingers(hand_landmarks, handedness):
+def count_extended_fingers(hand_landmarks):
     landmarks = hand_landmarks.landmark
     extended_fingers = 0
 
-    if handedness == "Right":
-        thumb_extended = landmarks[THUMB_TIP].x > landmarks[THUMB_IP].x
-    else:
-        thumb_extended = landmarks[THUMB_TIP].x < landmarks[THUMB_IP].x
-
-    if thumb_extended:
-        extended_fingers += 1
-
-    for tip_id, pip_id in zip(FINGER_TIPS, FINGER_PIPS):
-        if landmarks[tip_id].y < landmarks[pip_id].y:
+    for tip_id, bend_id in zip(FINGER_TIPS, FINGER_BENDS):
+        if landmarks[tip_id].y < landmarks[bend_id].y:
             extended_fingers += 1
 
     return extended_fingers
 
 
-def classify_gesture(hand_landmarks, handedness):
-    finger_count = count_extended_fingers(hand_landmarks, handedness)
+def classify_gesture(hand_landmarks):
+    finger_count = count_extended_fingers(hand_landmarks)
 
     if finger_count <= 1:
         return "rock", finger_count

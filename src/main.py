@@ -93,14 +93,14 @@ def main():
                 break
 
             frame = cv2.flip(frame, 1)
-            hand_landmarks, handedness = detect_first_hand(frame, hand_tracker)
+            hand_landmarks = detect_first_hand(frame, hand_tracker)
 
             if hand_landmarks is None:
                 player_move = None
                 finger_count = None
             else:
                 draw_hand_landmarks(frame, hand_landmarks)
-                player_move, finger_count = classify_gesture(hand_landmarks, handedness)
+                player_move, finger_count = classify_gesture(hand_landmarks)
 
             draw_game_overlay(frame, player_move, finger_count, computer_move, result, score)
             cv2.imshow(WINDOW_NAME, frame)
