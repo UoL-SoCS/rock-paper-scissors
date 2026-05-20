@@ -17,6 +17,13 @@ def show_camera_message():
     print("If another app is using the camera, close it and try again.")
 
 
+def window_was_closed():
+    try:
+        return cv2.getWindowProperty(WINDOW_NAME, cv2.WND_PROP_VISIBLE) < 1
+    except cv2.error:
+        return True
+
+
 def display_move(move):
     if not move:
         return "WAITING"
@@ -106,6 +113,9 @@ def main():
             cv2.imshow(WINDOW_NAME, frame)
 
             key = cv2.waitKey(1) & 0xFF
+
+            if window_was_closed():
+                break
 
             if key == ord("q"):
                 break
