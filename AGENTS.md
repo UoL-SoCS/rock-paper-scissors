@@ -90,7 +90,7 @@ A simple rule-based classifier is preferred. For example:
 
 - rock = zero or one fingers extended
 - scissors = two fingers extended
-- paper = four or five fingers extended
+- paper = four fingers extended
 
 The exact rule can be adjusted to match the chosen hand-tracking approach, but the logic should remain easy for students to understand.
 
