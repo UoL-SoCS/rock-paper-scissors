@@ -8,6 +8,7 @@ This repository has two useful branches:
 
 - `main`: the guided workshop version, with a few small `TODO` sections to complete during the activity
 - `complete-solution`: the finished fallback version, ready to run if you get stuck or want to compare your work
+- `multiplayer`: a two-player version with a split screen, countdown, and player-vs-player scoring
 
 ## Setup
 
@@ -49,7 +50,7 @@ The `main` starting point runs before any TODOs are completed, but it will print
 ## Controls
 
 - Show a rock, paper, or scissors gesture to the camera.
-- Press `Space` to play a round.
+- Press `Space` to play a round. On the `multiplayer` branch, this starts a 3-second countdown.
 - Press `R` to reset the score.
 - Press `Q` to quit.
 

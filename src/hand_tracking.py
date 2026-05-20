@@ -16,23 +16,32 @@ FINGER_TIPS = (8, 12, 16, 20)
 FINGER_BENDS = (6, 10, 14, 18)
 
 
-def create_hand_tracker():
+def create_hand_tracker(max_num_hands=1):
     return mp_hands.Hands(
         static_image_mode=False,
-        max_num_hands=1,
+        max_num_hands=max_num_hands,
         min_detection_confidence=0.7,
         min_tracking_confidence=0.5,
     )
 
 
-def detect_first_hand(frame, hand_tracker):
+def detect_hands(frame, hand_tracker):
     rgb_frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
     results = hand_tracker.process(rgb_frame)
 
     if not results.multi_hand_landmarks:
+        return []
+
+    return results.multi_hand_landmarks
+
+
+def detect_first_hand(frame, hand_tracker):
+    hands = detect_hands(frame, hand_tracker)
+
+    if not hands:
         return None
 
-    return results.multi_hand_landmarks[0]
+    return hands[0]
 
 
 def draw_hand_landmarks(frame, hand_landmarks):

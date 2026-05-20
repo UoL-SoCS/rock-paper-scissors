@@ -12,6 +12,8 @@ WINNING_MOVE = {
 PLAYER_WIN = "You win!"
 COMPUTER_WIN = "Computer wins!"
 DRAW = "Draw!"
+PLAYER_1_WIN = "Player 1 wins!"
+PLAYER_2_WIN = "Player 2 wins!"
 
 
 def choose_computer_move():
@@ -37,3 +39,24 @@ def update_score(score, result):
         score["player"] += 1
     elif result == COMPUTER_WIN:
         score["computer"] += 1
+
+
+def reset_multiplayer_score():
+    return {"player_1": 0, "player_2": 0}
+
+
+def decide_multiplayer_winner(player_1_move, player_2_move):
+    if player_1_move == player_2_move:
+        return DRAW
+
+    if WINNING_MOVE[player_1_move] == player_2_move:
+        return PLAYER_1_WIN
+
+    return PLAYER_2_WIN
+
+
+def update_multiplayer_score(score, result):
+    if result == PLAYER_1_WIN:
+        score["player_1"] += 1
+    elif result == PLAYER_2_WIN:
+        score["player_2"] += 1
