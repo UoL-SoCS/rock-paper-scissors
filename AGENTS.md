@@ -128,15 +128,18 @@ Before the event, verify that:
 
 ## Suggested workshop approach
 
+The `main` branch should be the guided tutorial branch. Keep it mostly complete, runnable, and easy to teach in about 45 minutes, with a small number of clearly labelled `TODO` sections that students can fill in during the activity.
+
 When editing the code for the workshop, make changes in small steps and keep each step runnable.
 
 A good sequence is:
 
-- start with camera capture
-- add overlays
+- run the camera feed and overlays
+- draw hand landmarks
+- count extended fingers
 - classify gestures
-- add game logic
-- polish the display
+- add random computer moves
+- decide winners and update the score
 
 ## Complete solution fallback
 

@@ -4,7 +4,9 @@
 
 A classroom-friendly Python activity that turns a webcam into a rock-paper-scissors game.
 
-The workshop branch starts with a small runnable webcam demo. A finished version is kept on the `complete-solution` branch so the class has a fallback if a machine or group gets stuck.
+This branch is the guided workshop version. The app is mostly complete, but a few small `TODO` sections are left for students to finish during the activity.
+
+Follow [TUTORIAL.md](TUTORIAL.md) for the 45-minute step-by-step lesson. A finished fallback version is kept on the `complete-solution` branch so the class has a safety net if a machine or group gets stuck.
 
 ## Setup
 
@@ -32,11 +34,14 @@ If you previously installed the dependencies and see `AttributeError: module 'me
 
 ## Workshop Flow
 
-1. Open the webcam feed.
+1. Run the mostly complete app.
 2. Draw hand landmarks.
-3. Classify rock, paper, and scissors.
-4. Generate a computer move.
-5. Decide the winner and update the score.
+3. Count extended fingers.
+4. Classify rock, paper, and scissors.
+5. Generate the computer move.
+6. Decide the winner and update the score.
+
+The starting point should still run before any TODOs are completed, but it will not play a real round until the students fill in the missing pieces.
 
 ## Complete Solution Fallback
 
