@@ -1,0 +1,10 @@
+[project]
+name = "rock-paper-scissors"
+version = "0.1.0"
+description = "A computer vision activity & tutorial for outreach events"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "mediapipe==0.10.21",
+    "opencv-contrib-python==4.11.0.86",
+]
