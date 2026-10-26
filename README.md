@@ -11,25 +11,13 @@ This repository has two useful branches:
 
 ## Setup
 
-Use Python 3.11 or 3.12.
+Use [`uv`](https://docs.astral.sh/uv/getting-started/installation/) to manage your Python environment, this is already installed on the lab machines.
+
+Once you have opened this repository on your computer, you will be able to run the following command to get started:
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-python src/main.py
+uv run src/main.py
 ```
-
-On Windows:
-
-```bat
-python -m venv .venv
-.venv\Scripts\activate
-pip install -r requirements.txt
-python src\main.py
-```
-
-You can also run `./start.sh` on macOS/Linux or `start.bat` on Windows after installing the requirements.
 
 If you previously installed the dependencies and see `AttributeError: module 'mediapipe' has no attribute 'solutions'`, run `pip install -r requirements.txt` again. The requirements file pins MediaPipe to a classroom-compatible version that still supports the simple `mp.solutions` API.
 
@@ -67,7 +55,7 @@ To switch to the finished version:
 
 ```bash
 git checkout complete-solution
-python src/main.py
+uv run src/main.py
 ```
 
 To return to the workshop starter:

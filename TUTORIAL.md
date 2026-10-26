@@ -31,22 +31,10 @@ The files are split by job so the project is easier to talk through. No mystery 
 
 ## Before You Start
 
-Install the requirements and run the app.
+You will need to install the requirements and run the app. We are using `uv` which will do both of those steps for you!
 
 ```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-python src/main.py
-```
-
-On Windows:
-
-```bat
-python -m venv .venv
-.venv\Scripts\activate
-pip install -r requirements.txt
-python src\main.py
+uv run src/main.py
 ```
 
 At the very start, the app prints a camera message because the first TODO has not been completed yet. That is intentional. The first job is to wake up the webcam.
@@ -209,7 +197,7 @@ If you get stuck, switch to the complete branch:
 
 ```bash
 git switch complete-solution
-python src/main.py
+uv run src/main.py
 ```
 
 To return to the workshop branch:
